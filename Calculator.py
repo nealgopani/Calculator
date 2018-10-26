@@ -18,15 +18,16 @@ class Window(QtGui.QWidget):
 		mult = self.createButton('x', 300, 200)
 
 
-		one = self.createButton(1, 20, 350)
-		two = self.createButton(2, 110, 350)
-		three = self.createButton(3, 200, 350)
-		four = self.createButton(4, 20, 300)
-		five = self.createButton(5, 110, 300)
-		six = self.createButton(6, 200, 300)
-		seven = self.createButton(7, 20, 250)
-		eight = self.createButton(8, 110, 250)
-		nine = self.createButton(9, 200, 250)
+		one = self.createButton('1', 20, 350)
+		two = self.createButton('2', 110, 350)
+		three = self.createButton('3', 200, 350)
+		four = self.createButton('4', 20, 300)
+		five = self.createButton('5', 110, 300)
+		six = self.createButton('6', 200, 300)
+		seven = self.createButton('7', 20, 250)
+		eight = self.createButton('8', 110, 250)
+		nine = self.createButton('9', 200, 250)
+		equals = self.createButton('=', 200, 300)
 
 
 		self.setGeometry(500, 200, 400, 400)
