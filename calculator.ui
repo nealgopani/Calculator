@@ -2,101 +2,168 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="minimumSize">
+   <size>
+    <width>305</width>
+    <height>383</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>305</width>
+    <height>383</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="KPushButton" name="kpushbutton">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>230</y>
-      <width>48</width>
-      <height>35</height>
+      <x>230</x>
+      <y>90</y>
+      <width>71</width>
+      <height>261</height>
      </rect>
     </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_11">
+       <property name="text">
+        <string>CE</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_14">
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_13">
+       <property name="text">
+        <string>−</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_12">
+       <property name="text">
+        <string>x</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_10">
+       <property name="text">
+        <string>÷</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_15">
+       <property name="text">
+        <string>=</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="KPushButton" name="kpushbutton_2">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>230</y>
-      <width>48</width>
-      <height>35</height>
+      <x>10</x>
+      <y>118</y>
+      <width>201</width>
+      <height>261</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pushButton_9">
+       <property name="text">
+        <string>3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="text">
+        <string>5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="text">
+        <string>6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>7</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>8</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>9</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="KPushButton" name="kpushbutton_3">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>290</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>290</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_5">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>160</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_6">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>230</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_7">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>290</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_8">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>160</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="KPushButton" name="kpushbutton_9">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>160</y>
-      <width>48</width>
-      <height>35</height>
-     </rect>
-    </property>
-   </widget>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder></zorder>
+   <zorder></zorder>
+   <zorder></zorder>
+   <zorder>pushButton_5</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>pushButton_5</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>pushButton_7</zorder>
+   <zorder>pushButton_8</zorder>
+   <zorder>pushButton_9</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAdd">
    <property name="text">
     <string>add</string>
@@ -106,13 +173,6 @@
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
