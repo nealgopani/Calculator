@@ -29,7 +29,7 @@ class Window(QtGui.QWidget):
 		nine = self.createButton('9', 200, 250)
 		equals = self.createButton('=', 200, 300)
 
-
+        #test of git
 		self.setGeometry(500, 200, 400, 400)
 		self.setWindowTitle('Calculator')    
 		self.show()
