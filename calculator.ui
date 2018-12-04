@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="KPushButton" name="kpushbutton">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>230</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>230</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>290</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_5">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>160</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_6">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>230</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_7">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>290</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_8">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>160</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="KPushButton" name="kpushbutton_9">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>48</width>
+      <height>35</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <action name="actionAdd">
+   <property name="text">
+    <string>add</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
