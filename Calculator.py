@@ -107,6 +107,8 @@ class Ui_MainWindow(QtGui.QMainWindow):
 
 		self.retranslateUi(MainWindow)
 		QtCore.QMetaObject.connectSlotsByName(MainWindow)
+		self.setButtonsAndLCD()
+
 		self.show()
 
 	def retranslateUi(self, MainWindow):
@@ -126,6 +128,27 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.pushButton.setText(_translate("MainWindow", "7", None))
 		self.pushButton_2.setText(_translate("MainWindow", "8", None))
 		self.pushButton_3.setText(_translate("MainWindow", "9", None))
+
+	def setButtonsAndLCD(self):
+		self.pushButton_7.clicked.connect(self.digit_clicked)
+		self.pushButton_8.clicked.connect(self.digit_clicked)
+		self.pushButton_9.clicked.connect(self.digit_clicked)
+		self.pushButton_4.clicked.connect(self.digit_clicked)
+		self.pushButton_5.clicked.connect(self.digit_clicked)
+		self.pushButton_6.clicked.connect(self.digit_clicked)
+		self.pushButton.clicked.connect(self.digit_clicked)
+		self.pushButton_2.clicked.connect(self.digit_clicked)
+		self.pushButton_3.clicked.connect(self.digit_clicked)
+
+		self.lcdNumber.setNumDigits(8)
+		
+
+	def digit_clicked(self):
+		sender = self.sender()
+		self.lcdNumber.display(int(sender.text()))
+
+	def displayLCD(self):
+		pass
 
 def main():
 	app = QtGui.QApplication(sys.argv)
