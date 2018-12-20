@@ -178,7 +178,6 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			self.digits.clear()
 
 
-
 		self.lcdNumber.display(int(number))
 
 	def clear(self):
@@ -191,10 +190,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.numOfSubClicks = 1
 		self.numOfDivClicks = 1
 
-		self.multLastClicked = False
-		self.divLastClicked = False
-		self.subLastClicked = False
-		self.addLastClicked = False
+		self.setBooleansFalse()
 
 
 	def multiply(self):
@@ -266,6 +262,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			print(self.pendingDiv)
 			self.lcdNumber.display(self.pendingDiv)
 		self.digits.clear()
+		self.setBooleansFalse()
+
+	def setBooleansFalse(self):
 		self.multLastClicked = False
 		self.divLastClicked = False
 		self.subLastClicked = False
