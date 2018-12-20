@@ -28,8 +28,12 @@ except AttributeError:
 class Ui_MainWindow(QtGui.QMainWindow):
 	def __init__(self):
 		super(Ui_MainWindow, self).__init__()
+
+		self.multClicked = False
+		self.pendingMult = 1
 		self.digits = []
 		self.numbers = []
+
 		self.setupUi(self)
 		
 	def setupUi(self, MainWindow):
@@ -144,6 +148,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 
 		self.pushButton_11.clicked.connect(self.clear)
 		self.pushButton_12.clicked.connect(self.multiply)
+		self.pushButton_15.clicked.connect(self.equals)
 
 		
 
@@ -159,18 +164,25 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			self.lcdNumber.display('Error')
 			self.digits.clear()
 
-
 		self.lcdNumber.display(int(number))
-		self.numbers.append(int(number))
 
 	def clear(self):
 		self.digits.clear()
 		self.lcdNumber.display(0)
+		self.pendingMult = 1
 
 	def multiply(self):
-		self.lcd
+		self.digits.clear()
+		self.multClicked = True
+		self.pendingMult *= self.lcdNumber.value()
+		print(self.pendingMult)
 
-		pass
+	def equals(self):
+		self.pendingMult *= self.lcdNumber.value()
+		print(self.pendingMult)
+		self.lcdNumber.display(self.pendingMult)
+		self.pendingMult = 1
+		print(self.pendingMult)
 
 
 
