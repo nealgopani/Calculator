@@ -37,6 +37,11 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.numOfSubClicks = 1
 		self.numOfDivClicks = 1
 
+		self.multLastClicked = False
+		self.divLastClicked = False
+		self.subLastClicked = False
+		self.addLastClicked = False
+
 		self.digits = []
 
 		self.setupUi(self)
@@ -186,17 +191,33 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.numOfSubClicks = 1
 		self.numOfDivClicks = 1
 
+		self.multLastClicked = False
+		self.divLastClicked = False
+		self.subLastClicked = False
+		self.addLastClicked = False
+
+
 	def multiply(self):
 		self.digits.clear()
 		self.pendingMult *= self.lcdNumber.value()
 		print(self.pendingMult)
 		self.lcdNumber.display(self.pendingMult)
 
+		self.multLastClicked = True
+		self.divLastClicked = False
+		self.subLastClicked = False
+		self.addLastClicked = False
+
 	def add(self):
 		self.digits.clear()
 		self.pendingAdd += self.lcdNumber.value()
 		self.lcdNumber.display(self.pendingAdd)
 		print(self.pendingAdd)
+
+		self.multLastClicked = False
+		self.divLastClicked = False
+		self.subLastClicked = False
+		self.addLastClicked = True
 
 	def subtract(self):
 		if self.numOfSubClicks == 1:
@@ -208,6 +229,11 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			self.pendingSub -= self.lcdNumber.value()
 			print(self.pendingSub)
 			self.lcdNumber.display(self.pendingSub)
+
+		self.multLastClicked = False
+		self.divLastClicked = False
+		self.subLastClicked = True
+		self.addLastClicked = False
 
 		
 	def divide(self):
@@ -221,9 +247,30 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			print(self.pendingDiv)
 			self.lcdNumber.display(self.pendingDiv)
 
+		self.multLastClicked = False
+		self.divLastClicked = True
+		self.subLastClicked = False
+		self.addLastClicked = False
+
 	def equals(self):
-		self.lcdNumber.display(self.lcdNumber.value() * self.pendingMult)
-		self.pendingMult = 1
+		if self.multLastClicked:
+			self.lcdNumber.display(self.lcdNumber.value() * self.pendingMult)
+			self.pendingMult = 1
+		elif self.subLastClicked:
+			self.lcdNumber.display(self.pendingSub - self.lcdNumber.value())
+		elif self.addLastClicked:
+			self.pendingAdd += self.lcdNumber.value()
+			self.lcdNumber.display(self.pendingAdd)
+		else:
+			self.pendingDiv /= self.lcdNumber.value()
+			print(self.pendingDiv)
+			self.lcdNumber.display(self.pendingDiv)
+		self.digits.clear()
+		self.multLastClicked = False
+		self.divLastClicked = False
+		self.subLastClicked = False
+		self.addLastClicked = False
+
 
 
 
