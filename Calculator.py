@@ -28,6 +28,8 @@ except AttributeError:
 class Ui_MainWindow(QtGui.QMainWindow):
 	def __init__(self):
 		super(Ui_MainWindow, self).__init__()
+		self.digits = []
+		self.numbers = []
 		self.setupUi(self)
 		
 	def setupUi(self, MainWindow):
@@ -94,7 +96,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.pushButton_3 = QtGui.QPushButton(self.layoutWidget)
 		self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
 		self.gridLayout_2.addWidget(self.pushButton_3, 2, 2, 1, 1)
-		self.lcdNumber = QtGui.QLCDNumber(self.centralwidget)
+		self.lcdNumber = QtGui.QLCDNumber(9, self.centralwidget)
 		self.lcdNumber.setGeometry(QtCore.QRect(20, 20, 271, 51))
 		self.lcdNumber.setObjectName(_fromUtf8("lcdNumber"))
 		self.layoutWidget.raise_()
@@ -107,7 +109,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 
 		self.retranslateUi(MainWindow)
 		QtCore.QMetaObject.connectSlotsByName(MainWindow)
-		self.setButtonsAndLCD()
+		self.setButtons()
 
 		self.show()
 
@@ -129,7 +131,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.pushButton_2.setText(_translate("MainWindow", "8", None))
 		self.pushButton_3.setText(_translate("MainWindow", "9", None))
 
-	def setButtonsAndLCD(self):
+	def setButtons(self):
 		self.pushButton_7.clicked.connect(self.digit_clicked)
 		self.pushButton_8.clicked.connect(self.digit_clicked)
 		self.pushButton_9.clicked.connect(self.digit_clicked)
@@ -140,15 +142,38 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.pushButton_2.clicked.connect(self.digit_clicked)
 		self.pushButton_3.clicked.connect(self.digit_clicked)
 
-		self.lcdNumber.setNumDigits(8)
+		self.pushButton_11.clicked.connect(self.clear)
+		self.pushButton_12.clicked.connect(self.multiply)
+
 		
 
 	def digit_clicked(self):
+		number = ''
 		sender = self.sender()
-		self.lcdNumber.display(int(sender.text()))
+		self.digits.append(int(sender.text()))
 
-	def displayLCD(self):
+		if len(self.digits) < 10:
+			for digit in self.digits:
+				number += str(digit)
+		else:
+			self.lcdNumber.display('Error')
+			self.digits.clear()
+
+
+		self.lcdNumber.display(int(number))
+		self.numbers.append(int(number))
+
+	def clear(self):
+		self.digits.clear()
+		self.lcdNumber.display(0)
+
+	def multiply(self):
+		self.lcd
+
 		pass
+
+
+
 
 def main():
 	app = QtGui.QApplication(sys.argv)
