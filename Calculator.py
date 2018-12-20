@@ -199,10 +199,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		print(self.pendingMult)
 		self.lcdNumber.display(self.pendingMult)
 
+		self.setBooleansFalse()
 		self.multLastClicked = True
-		self.divLastClicked = False
-		self.subLastClicked = False
-		self.addLastClicked = False
+		
 
 	def add(self):
 		self.digits.clear()
@@ -210,9 +209,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		self.lcdNumber.display(self.pendingAdd)
 		print(self.pendingAdd)
 
-		self.multLastClicked = False
-		self.divLastClicked = False
-		self.subLastClicked = False
+		self.setBooleansFalse()
 		self.addLastClicked = True
 
 	def subtract(self):
@@ -226,11 +223,8 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			print(self.pendingSub)
 			self.lcdNumber.display(self.pendingSub)
 
-		self.multLastClicked = False
-		self.divLastClicked = False
+		self.setBooleansFalse()
 		self.subLastClicked = True
-		self.addLastClicked = False
-
 		
 	def divide(self):
 		if self.numOfDivClicks == 1:
@@ -243,10 +237,8 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			print(self.pendingDiv)
 			self.lcdNumber.display(self.pendingDiv)
 
-		self.multLastClicked = False
+		self.setBooleansFalse()
 		self.divLastClicked = True
-		self.subLastClicked = False
-		self.addLastClicked = False
 
 	def equals(self):
 		if self.multLastClicked:
@@ -257,10 +249,12 @@ class Ui_MainWindow(QtGui.QMainWindow):
 		elif self.addLastClicked:
 			self.pendingAdd += self.lcdNumber.value()
 			self.lcdNumber.display(self.pendingAdd)
+			self.pendingAdd = 0
 		else:
 			self.pendingDiv /= self.lcdNumber.value()
-			print(self.pendingDiv)
 			self.lcdNumber.display(self.pendingDiv)
+			self.numOfDivClicks = 1
+			self.pendingDiv = self.lcdNumber.value()
 		self.digits.clear()
 		self.setBooleansFalse()
 
