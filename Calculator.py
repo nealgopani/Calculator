@@ -29,10 +29,15 @@ class Ui_MainWindow(QtGui.QMainWindow):
 	def __init__(self):
 		super(Ui_MainWindow, self).__init__()
 
-		self.multClicked = False
 		self.pendingMult = 1
+		self.pendingAdd = 0
+		self.pendingSub = 0
+		self.pendingDiv = 0
+
+		self.numOfSubClicks = 1
+		self.numOfDivClicks = 1
+
 		self.digits = []
-		self.numbers = []
 
 		self.setupUi(self)
 		
@@ -148,6 +153,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
 
 		self.pushButton_11.clicked.connect(self.clear)
 		self.pushButton_12.clicked.connect(self.multiply)
+		self.pushButton_10.clicked.connect(self.divide)
+		self.pushButton_13.clicked.connect(self.subtract)
+		self.pushButton_14.clicked.connect(self.add)
 		self.pushButton_15.clicked.connect(self.equals)
 
 		
@@ -164,26 +172,58 @@ class Ui_MainWindow(QtGui.QMainWindow):
 			self.lcdNumber.display('Error')
 			self.digits.clear()
 
+
+
 		self.lcdNumber.display(int(number))
 
 	def clear(self):
 		self.digits.clear()
 		self.lcdNumber.display(0)
 		self.pendingMult = 1
+		self.pendingSub = 0
+		self.pendingAdd = 0
+		self.pendingDiv = 0
+		self.numOfSubClicks = 1
+		self.numOfDivClicks = 1
 
 	def multiply(self):
 		self.digits.clear()
-		self.multClicked = True
-		self.pendingMult *= self.lcdNumber.value()
-		print(self.pendingMult)
-
-	def equals(self):
 		self.pendingMult *= self.lcdNumber.value()
 		print(self.pendingMult)
 		self.lcdNumber.display(self.pendingMult)
-		self.pendingMult = 1
-		print(self.pendingMult)
 
+	def add(self):
+		self.digits.clear()
+		self.pendingAdd += self.lcdNumber.value()
+		self.lcdNumber.display(self.pendingAdd)
+		print(self.pendingAdd)
+
+	def subtract(self):
+		if self.numOfSubClicks == 1:
+			self.pendingSub = self.lcdNumber.value()
+			self.digits.clear()
+			self.numOfSubClicks +=1
+		else:
+			self.digits.clear()
+			self.pendingSub -= self.lcdNumber.value()
+			print(self.pendingSub)
+			self.lcdNumber.display(self.pendingSub)
+
+		
+	def divide(self):
+		if self.numOfDivClicks == 1:
+			self.pendingDiv = self.lcdNumber.value()
+			self.digits.clear()
+			self.numOfDivClicks +=1
+		else:
+			self.digits.clear()
+			self.pendingDiv /= self.lcdNumber.value()
+			print(self.pendingDiv)
+			self.lcdNumber.display(self.pendingDiv)
+
+	def equals(self):
+		self.lcdNumber.display(self.lcdNumber.value() * self.pendingMult)
+		self.pendingMult = 1
 
 
 
